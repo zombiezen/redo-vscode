@@ -1,0 +1,70 @@
+{
+	"name": "redo",
+	"version": "0.0.1",
+	"displayName": "redo",
+	"description": "Task provider for redo",
+	"publisher": "zombiezen",
+	"license": "Apache-2.0",
+	"engines": {
+		"vscode": "^1.61.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCommand:workbench.action.tasks.runTask"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"configuration": {
+			"title": "redo",
+			"properties": {
+				"redo.redoPath": {
+					"type": "string",
+					"default": "redo",
+					"markdownDescription": "Path to the `redo` program to use when running tasks.",
+					"scope": "machine-overridable"
+				}
+			}
+		},
+		"languages": [
+			{
+				"id": "shellscript",
+				"extensions": [
+					".do"
+				]
+			}
+		],
+		"taskDefinitions": [
+			{
+				"type": "redo",
+				"required": [
+					"target"
+				],
+				"properties": {
+					"target": {
+						"type": "string",
+						"description": "The path to the target (relative to the workspace folder)"
+					}
+				}
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run esbuild-base -- --minify",
+		"esbuild-base": "esbuild ./src/extension.ts --bundle --outfile=out/extension.js --external:vscode --format=cjs --platform=node",
+		"esbuild": "npm run esbuild-base -- --sourcemap",
+		"watch": "npm run esbuild-base -- --sourcemap --watch",
+		"compile": "tsc -p ./",
+		"lint": "eslint src --ext ts"
+	},
+	"devDependencies": {
+		"@types/node": "14.17.27",
+		"@types/vscode": "^1.61.0",
+		"@typescript-eslint/eslint-plugin": "^5.1.0",
+		"@typescript-eslint/parser": "^5.1.0",
+		"esbuild": "^0.13.12",
+		"eslint": "^8.1.0",
+		"typescript": "^4.4.4"
+	}
+}
