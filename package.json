@@ -1,10 +1,17 @@
 {
 	"name": "redo",
-	"version": "0.0.1",
+	"version": "0.1.0",
 	"displayName": "redo",
 	"description": "Task provider for redo",
 	"publisher": "zombiezen",
 	"license": "Apache-2.0",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/zombiezen/redo-vscode.git"
+	},
+	"bugs": {
+		"url": "https://github.com/zombiezen/redo-vscode/issues"
+	},
 	"engines": {
 		"vscode": "^1.61.0"
 	},
