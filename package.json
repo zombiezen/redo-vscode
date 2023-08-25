@@ -38,7 +38,8 @@
 			{
 				"id": "shellscript",
 				"extensions": [
-					".do"
+					".do",
+					".od"
 				]
 			}
 		],
