@@ -1,6 +1,6 @@
 {
 	"name": "redo",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"displayName": "redo",
 	"description": "Task provider for redo",
 	"publisher": "zombiezen",
